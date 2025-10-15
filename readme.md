@@ -19,6 +19,12 @@ These documents are varied in production, and in availability. Some states make 
 - Papers laid
 - Business specific disaggregated reports
 
+## Status
+
+Status of each legislature is tracked in `assembly_mirror_tracker.csv`.
+
+![Status for each presently exisiting legislature](./scripts/map_visualisation/status_map.png)
+
 ## About the Constitutional Observer
 
 The Constitutional Observer is interested in the discourses that make the political aspects of the country: parliamentry, legislative, speech, news, social media and more. The website https://Constitutional.Observer is a comparative search platform to query and understand such discourses, currently it includes the debates from the Constituent Assembly and Debates from the Lok Sabha from 1985 to 2019.
