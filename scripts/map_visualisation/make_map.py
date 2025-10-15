@@ -67,8 +67,8 @@ def categorize_status(row):
     council_completed = 'Completed' in council_status
     asm_needs_update = 'Metadata' in asm_status or 'update' in asm_status.lower()
     council_needs_update = 'Metadata' in council_status or 'update' in council_status.lower()
-    asm_in_progress = 'Started' in asm_status or 'pending completion' in asm_status
-    council_in_progress = 'Started' in council_status or 'pending completion' in council_status
+    asm_in_progress = 'Started' in asm_status or 'pending completion' in asm_status or 'ongoing' in asm_status.lower()
+    council_in_progress = 'Started' in council_status or 'pending completion' in council_status or 'ongoing' in council_status.lower()
     
     # Category 1: Both Completed
     if asm_completed and council_completed:
@@ -241,7 +241,7 @@ for idx, row in gdf.iterrows():
         
         # Add text with background
         ax.annotate(label, xy=(row['x'], row['y']), xytext=(x, y),
-                   fontsize=15, ha=align, va='top', wrap=True,
+                   fontsize=4, ha=align, va='top', wrap=True,
                    bbox=dict(boxstyle='round,pad=0.5', facecolor='white', 
                             edgecolor='black', alpha=0.95, linewidth=0.7),
                    arrowprops=dict(arrowstyle='-', color='black', lw=0.7, 
@@ -266,7 +266,7 @@ legend_elements = [
     mpatches.Patch(facecolor='#e0e0e0', edgecolor='black', label='Other')
 ]
 
-ax.legend(handles=legend_elements, loc='lower center', fontsize=13,
+ax.legend(handles=legend_elements, loc='lower center', fontsize=8,
          title='Archive Status Categories', title_fontsize=2, framealpha=0.95,
          ncol=4)
 
