@@ -6,11 +6,11 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Read the CSV data
-url = "../../assembly_mirror_tracker.csv"
+url = "assembly_mirror_tracker.csv"
 df = pd.read_csv(url)
 
 # Get India GeoJSON
-geojson_url = "india_bhuvan_states_uts.geojsonl"
+geojson_url = "./scripts/map_visualisation/india_bhuvan_states_uts.geojsonl"
 gdf = gpd.read_file(geojson_url)
 
 # Create state mapping
@@ -241,7 +241,7 @@ for idx, row in gdf.iterrows():
         
         # Add text with background
         ax.annotate(label, xy=(row['x'], row['y']), xytext=(x, y),
-                   fontsize=4, ha=align, va='top', wrap=True,
+                   fontsize=12, ha=align, va='top', wrap=True,
                    bbox=dict(boxstyle='round,pad=0.5', facecolor='white', 
                             edgecolor='black', alpha=0.95, linewidth=0.7),
                    arrowprops=dict(arrowstyle='-', color='black', lw=0.7, 
@@ -271,8 +271,7 @@ ax.legend(handles=legend_elements, loc='lower center', fontsize=8,
          ncol=4)
 
 plt.tight_layout()
-plt.show()
-plt.savefig('status_map.png')
+plt.savefig('./scripts/map_visualisation/status_map.png')
 
 print("\nMap generated successfully!")
 print(f"\nAll {len(gdf[gdf['State / UT'].notna()])} states/UTs displayed")
